@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>RES04-J7</title>
+</head>
+<body>
+    <?php
+    
+    require '../partials/_admin-header.phtml';
+    
+    if(isset($template))
+    {
+        if($template === "admin-post")
+        {
+            require 'post/admin-post.phtml';
+        }
+        else if($template === "admin-post-category")
+        {
+            require 'post/admin-post-category.phtml';
+        }
+    }
+    
+    require '../partials/_admin-footer.phtml';
+    
+    ?>
+     
+</body>
+</html>

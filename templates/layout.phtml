@@ -1,0 +1,26 @@
+<?php
+
+require "partials/_header.phtml";
+require "partials/_footer.phtml";
+
+
+
+?>
+
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <link rel="stylesheet" href="assets/styles/css/style.css" type="text/css" />
+</head>
+<body>
+    <?php
+    
+    if(isset($template)){
+        require $template."/".$template.".phtml";
+    }
+    
+    ?>
+</body>
+</html>
