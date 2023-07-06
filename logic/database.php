@@ -4,7 +4,7 @@ function loadUser(string $email) : User
 {
     $host = "db.3wa.io";
     $port = "3306";
-    $dbname = "kevincorvaisier_phpj6";
+    $dbname = "kevincorvaisier_phpj7";
     $connexionString = "mysql:host=$host;port=$port;dbname=$dbname";
     
     $log = "kevincorvaisier";
@@ -30,7 +30,7 @@ function saveUser(User $user) : User
 {
     $host = "db.3wa.io";
     $port = "3306";
-    $dbname = "kevincorvaisier_phpj6";
+    $dbname = "kevincorvaisier_phpj7";
     $connexionString = "mysql:host=$host;port=$port;dbname=$dbname";
     
     $log = "kevincorvaisier";
@@ -42,7 +42,7 @@ function saveUser(User $user) : User
         $password
     );
     
-    if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['email']) && isset($_POST['password'])) {
+    if (isset($_POST['firstName']) && isset($_POST['lastName']) && isset($_POST['email']) && isset($_POST['password'])) {
         
         $query = $db->prepare('INSERT INTO users(first_name, last_name, email, password) VALUES(:first_name, :last_name, :email, :password)');
         $parameters = [
@@ -53,10 +53,10 @@ function saveUser(User $user) : User
         ];
         $query->execute($parameters);
 
-        if (isset($_POST['firstname'])) {
+        if (isset($_POST['firstName'])) {
             $query = $db->prepare('SELECT * FROM `users` WHERE first_name = :first_name LIMIT 1');
             $parameters = [
-                'first_name' => $_POST['firstname']
+                'first_name' => $_POST['firstName']
             ];
             $query->execute($parameters);
             $user = $query->fetch(PDO::FETCH_ASSOC);
